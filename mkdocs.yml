@@ -1,0 +1,72 @@
+site_name: Software Engineering Lernpfad
+site_description: Ein umfassender Lernpfad mit 182 verlinkten Diagrammen zu Software Engineering Themen
+site_url: https://nifl2000.github.io/learning-guide/
+author: nifl2000
+
+theme:
+  name: material
+  language: de
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Automatisch
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Hell
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Dunkel
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+repo_name: nifl2000/learning-guide
+repo_url: https://github.com/nifl2000/learning-guide
+
+nav:
+  - Home: index.md
+  - System Design: systemdesign.md
+  - Databases: databases.md
+  - Cloud & DevOps: clouddevops.md
+  - Networking: networking.md
+  - Security: security.md
+  - Operating Systems: operatingsystems.md
+  - Programming: programming.md
+  - Career: career.md
+  - AI: ai.md
+  - Miscellaneous: miscellaneous.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/nifl2000/learning-guide
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
