@@ -1,0 +1,1291 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ein umfassender Lernpfad mit 182 verlinkten Diagrammen zu Software Engineering Themen">
+      
+      
+      
+        <link rel="canonical" href="https://nifl2000.github.io/learning-guide/operatingsystems/">
+      
+      
+        <link rel="prev" href="../security/">
+      
+      
+        <link rel="next" href="../programming/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Operating Systems - Software Engineering Lernpfad</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operating-systems" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href=".." title="Software Engineering Lernpfad" class="md-header__button md-logo" aria-label="Software Engineering Lernpfad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Engineering Lernpfad
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operating Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Automatisch"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Automatisch" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Hell"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Hell" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dunkel"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Dunkel" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nifl2000/learning-guide" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nifl2000/learning-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Software Engineering Lernpfad" class="md-nav__button md-logo" aria-label="Software Engineering Lernpfad" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Software Engineering Lernpfad
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nifl2000/learning-guide" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nifl2000/learning-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemdesign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clouddevops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud & DevOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-development-learnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Development Learnings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-services-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cloud Services Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-kafka-message-loss-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Kafka Message Loss Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-of-popular-open-source-sql-and-nosql-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison of Popular Open-Source SQL and NoSQL Databases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-memory-components-and-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computer Memory Components and Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-scaling-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Scaling Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-command-line-interface-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Command Line Interface (CLI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-performance-observability-tools-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Performance Observability Tools Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-root-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Root Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-initialization-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Initialization Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-stack-tool-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Stack Tool Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservice-design-patterns-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservice Design Patterns and Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#octal-and-string-representation-of-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Octal and String Representation of Permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payment-processing-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment Processing Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql-extensions-and-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Extensions and Integrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-linux-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Linux Directories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-7-layers-of-the-osi-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 7 Layers of the OSI Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../miscellaneous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-development-learnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Development Learnings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-services-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cloud Services Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-kafka-message-loss-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Kafka Message Loss Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-of-popular-open-source-sql-and-nosql-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison of Popular Open-Source SQL and NoSQL Databases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computer-memory-components-and-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computer Memory Components and Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-scaling-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Scaling Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-command-line-interface-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Command Line Interface (CLI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-performance-observability-tools-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Performance Observability Tools Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-root-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Root Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-initialization-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Initialization Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-system-stack-tool-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux System Stack Tool Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservice-design-patterns-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservice Design Patterns and Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservices-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microservices Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#octal-and-string-representation-of-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Octal and String Representation of Permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payment-processing-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment Processing Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql-extensions-and-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Extensions and Integrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-linux-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Linux Directories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-7-layers-of-the-osi-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 7 Layers of the OSI Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="operating-systems">Operating Systems</h1>
+<h3 id="api-development-learnings">API Development Learnings</h3>
+<details class="info" open="open">
+<summary>11 Things I Learned about API Development at POST/CON</summary>
+<p>By ByteByteGo summarizing 11 key takeaways from the POST/CON conference. The points are categorized into three main areas: API Dev Toolkit (covering workflows, monitoring, time-to-first-call, authorization, and AI tools), API Collaboration (covering streamlined workflows, producer/consumer collaboration, and cross-functional efforts), and API Community Growth (covering in-editor testing, marketing APIs, and the Postman API Network).</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/Networking_APIDevToolkitAPICollaborationA_APIDevelopmentLearnings.png">📊 Vergrößern</a></p>
+<p><img alt="API Development Learnings" src="../images/Networking_APIDevToolkitAPICollaborationA_APIDevelopmentLearnings.png" /></p>
+<h3 id="aws-cloud-services-overview">AWS Cloud Services Overview</h3>
+<details class="info" open="open">
+<summary>Most Important AWS Services To Learn</summary>
+<p>Table categorizing key Amazon Web Services (AWS) into functional groups such as Cloud Computing Essentials, Networking, Databases, DevOps, Security, and Machine Learning, listing specific services like S3, EC2, Lambda, and IAM for each category.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/CloudInfrastructure_ServiceCategories_AWSCloudServicesOverview.png">📊 Vergrößern</a></p>
+<p><img alt="AWS Cloud Services Overview" src="../images/CloudInfrastructure_ServiceCategories_AWSCloudServicesOverview.png" /></p>
+<h3 id="apache-kafka-message-loss-scenarios">Apache Kafka Message Loss Scenarios</h3>
+<details class="info" open="open">
+<summary>Can Kafka Lose Messages?</summary>
+<p>A detailed architectural diagram illustrating the data flow in Apache Kafka from Producer to Consumer. It highlights five specific cases where message loss can occur: asynchronous sending, record batching, asynchronous flushing, data replication issues among brokers, and consumer auto-commit settings.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/Databases_Kafka_ProducerBrokerMessageLossScenarios.png">📊 Vergrößern</a></p>
+<p><img alt="Apache Kafka Message Loss Scenarios" src="../images/Databases_Kafka_ProducerBrokerMessageLossScenarios.png" /></p>
+<h3 id="comparison-of-popular-open-source-sql-and-nosql-databases">Comparison of Popular Open-Source SQL and NoSQL Databases</h3>
+<details class="info" open="open">
+<summary>Most Popular Open Source Databases</summary>
+<p>Ten popular open-source databases (Cassandra, MariaDB, PostgreSQL, MySQL, Couchbase, MongoDB, Redis, CockroachDB, SQLite, and Neo4j). Each database is represented in a central wheel and connected to a detailed box listing its key characteristics, such as being a fork of MySQL, ACID compliance, or specific use cases like mobile apps or graph databases.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/Databases_DatabaseOverviewAndFeatures_ComparisonOfPopularOpenSourceSQLAndNoSQLDatabases.png">📊 Vergrößern</a></p>
+<p><img alt="Comparison of Popular Open-Source SQL and NoSQL Databases" src="../images/Databases_DatabaseOverviewAndFeatures_ComparisonOfPopularOpenSourceSQLAndNoSQLDatabases.png" /></p>
+<h3 id="computer-memory-components-and-hierarchy">Computer Memory Components and Hierarchy</h3>
+<details class="info" open="open">
+<summary>Memory Types</summary>
+<p>Different types of computer memory. It features a pyramid diagram of the memory hierarchy (from Registers to Remote Secondary Storage), a visual of HDD sectors, a detailed breakdown of CPU registers, a data flow diagram for Caches and RAM, and a block diagram of SSD internal architecture.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_MemoryHierarchyAndArchitecture_ComputerMemoryComponentsAndHierarchy.png">📊 Vergrößern</a></p>
+<p><img alt="Computer Memory Components and Hierarchy" src="../images/OperatingSystems_MemoryHierarchyAndArchitecture_ComputerMemoryComponentsAndHierarchy.png" /></p>
+<h3 id="database-scaling-strategies">Database Scaling Strategies</h3>
+<details class="info" open="open">
+<summary>100X Postgres Scaling at Figma</summary>
+<p>An architectural diagram illustrating the evolution of Figma's PostgreSQL scaling. It shows three phases: 1) Vertical Scaling with Read Replicas using Amazon RDS and PGbouncer, 2) Vertical Partitioning splitting tables by columns (e.g., User/Auth vs. Files/Image), and 3) Horizontal Partitioning (Sharding) splitting data by ID ranges across multiple shards using a DB Proxy.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/SystemDesign_VerticalScalingReplicationVert_DatabaseScalingStrategies.png">📊 Vergrößern</a></p>
+<p><img alt="Database Scaling Strategies" src="../images/SystemDesign_VerticalScalingReplicationVert_DatabaseScalingStrategies.png" /></p>
+<h3 id="linux-command-line-interface-cli">Linux Command Line Interface (CLI)</h3>
+<details class="info" open="open">
+<summary>18 Most-used Linux Commands</summary>
+<p>Cheat sheet displaying a grid of 18 fundamental Linux commands (such as ls, cd, mkdir, rm, grep, etc.) along with brief descriptions of their functions.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_CommAndReference_LinuxCommAndLineInterfaceCLI.png">📊 Vergrößern</a></p>
+<p><img alt="Linux Command Line Interface (CLI)" src="../images/OperatingSystems_CommAndReference_LinuxCommAndLineInterfaceCLI.png" /></p>
+<h3 id="linux-performance-observability-tools-map">Linux Performance Observability Tools Map</h3>
+<details class="info" open="open">
+<summary>Linux Performance</summary>
+<p>The Linux software stack and hardware architecture, annotated with specific command-line tools (such as strace, perf, top, iostat, and tcpdump) mapped to the specific layers or components they are used to observe and analyze.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_ObservabilityTools_LinuxPerformanceObservabilityToolsMap.png">📊 Vergrößern</a></p>
+<p><img alt="Linux Performance Observability Tools Map" src="../images/OperatingSystems_ObservabilityTools_LinuxPerformanceObservabilityToolsMap.png" /></p>
+<h3 id="linux-root-directory-structure">Linux Root Directory Structure</h3>
+<details class="info" open="open">
+<summary>Linux File Systems</summary>
+<p>The standard Linux file system hierarchy. It features a central root directory ('/') node branching out to common subdirectories (like /bin, /etc, /home, /usr, /var) with icons and brief descriptions explaining the purpose of each directory.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_DirectoryHierarchy_LinuxRootDirectoryStructure.png">📊 Vergrößern</a></p>
+<p><img alt="Linux Root Directory Structure" src="../images/OperatingSystems_DirectoryHierarchy_LinuxRootDirectoryStructure.png" /></p>
+<h3 id="linux-system-initialization">Linux System Initialization</h3>
+<details class="info" open="open">
+<summary>Linux Boot Process Explained</summary>
+<p>A flowchart diagram illustrating the 8-step Linux boot process. It begins with powering on the hardware and BIOS/UEFI POST checks, proceeds to device detection and GRUB bootloader selection, loads the kernel and systemd (the first user-space process), executes .target files and startup scripts, and concludes when users can log in.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_BootSequenceSteps_LinuxSystemInitialization.png">📊 Vergrößern</a></p>
+<p><img alt="Linux System Initialization" src="../images/OperatingSystems_BootSequenceSteps_LinuxSystemInitialization.png" /></p>
+<h3 id="linux-system-initialization-sequence">Linux System Initialization Sequence</h3>
+<details class="info" open="open">
+<summary>Linux Boot Process</summary>
+<p>A flowchart illustrating the 8-step Linux boot process, starting from Power On and BIOS/UEFI detection, moving through the GRUB bootloader and kernel execution, initializing systemd, running target files and startup scripts, and finally allowing user login.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_General_LinuxSystemInitializationSequence.png">📊 Vergrößern</a></p>
+<p><img alt="Linux System Initialization Sequence" src="../images/OperatingSystems_General_LinuxSystemInitializationSequence.png" /></p>
+<h3 id="linux-system-stack-tool-mapping">Linux System Stack Tool Mapping</h3>
+<details class="info" open="open">
+<summary>Linux Performance</summary>
+<p>The Linux software and hardware stack, mapping various performance and observability tools (e.g., strace, top, iostat, perf, tcpdump) to the specific layers they monitor, from Applications down to Device Drivers, I/O Controllers, CPUs, and DRAM.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_ObservabilityTools_LinuxSystemStackToolMapping.png">📊 Vergrößern</a></p>
+<p><img alt="Linux System Stack Tool Mapping" src="../images/OperatingSystems_ObservabilityTools_LinuxSystemStackToolMapping.png" /></p>
+<h3 id="microservice-design-patterns-and-operations">Microservice Design Patterns and Operations</h3>
+<details class="info" open="open">
+<summary>Microservice Best Practices</summary>
+<p>Nine key best practices for building microservices: 1. Separate data store, 2. Keep code at a similar level of maturity, 3. Separate build for each microservice, 4. Single responsibility, 5. Deploy into containers, 6. Treat servers as stateless, 7. Domain-driven design, 8. Micro frontend, and 9. Orchestrating microservices (using Kubernetes).</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/SystemDesign_ArchitecturalGuidelines_MicroserviceDesignPatternsAndOperations.png">📊 Vergrößern</a></p>
+<p><img alt="Microservice Design Patterns and Operations" src="../images/SystemDesign_ArchitecturalGuidelines_MicroserviceDesignPatternsAndOperations.png" /></p>
+<h3 id="microservices-architecture">Microservices Architecture</h3>
+<details class="info" open="open">
+<summary>9 Best Practices For Building Microservices</summary>
+<p>Nine key best practices for building microservices, including designing for failure, building small services, using lightweight protocols, service discovery, data ownership, resiliency patterns, security, centralized logging, and containerization.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/SystemDesign_BestPractices_MicroservicesArchitecture.png">📊 Vergrößern</a></p>
+<p><img alt="Microservices Architecture" src="../images/SystemDesign_BestPractices_MicroservicesArchitecture.png" /></p>
+<h3 id="octal-and-string-representation-of-permissions">Octal and String Representation of Permissions</h3>
+<details class="info" open="open">
+<summary>Linux</summary>
+<p>Linux file permissions. It includes a table mapping binary and octal values to string representations (r, w, x) and permission types. Below, it breaks down a permission string (rwxrw-r-x) into Owner, Group, and Other segments, showing how the octal values (7, 6, 5) are calculated by summing the values for Read (4), Write (2), and Execute (1).</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_FilePermissions_OctalAndStringRepresentationOfPermissions.png">📊 Vergrößern</a></p>
+<p><img alt="Octal and String Representation of Permissions" src="../images/OperatingSystems_FilePermissions_OctalAndStringRepresentationOfPermissions.png" /></p>
+<h3 id="payment-processing-infrastructure">Payment Processing Infrastructure</h3>
+<details class="info" open="open">
+<summary>The Payments Ecosystem</summary>
+<p>The payments ecosystem, categorizing key industry players (ISO/MSP, Payment Gateway, Payment Processor) with company logos on the left, and mapping the transaction flow between merchants, acquiring banks, card networks, and issuing banks on the right.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/SystemDesign_KeyPlayersAndTransactionFlow_PaymentProcessingInfrastructure.png">📊 Vergrößern</a></p>
+<p><img alt="Payment Processing Infrastructure" src="../images/SystemDesign_KeyPlayersAndTransactionFlow_PaymentProcessingInfrastructure.png" /></p>
+<h3 id="postgresql-extensions-and-integrations">PostgreSQL Extensions and Integrations</h3>
+<details class="info" open="open">
+<summary>Is Postgres eating the Database World?</summary>
+<p>The expanding ecosystem of PostgreSQL. A central pie chart categorizes database functions into Graph, TimeSeries, Machine Learning, OLAP, Derived, Geospatial, Search, and Federated. Surrounding boxes display logos of specific tools, extensions, and databases (like TimescaleDB, PostGIS, Mongo, Redis) that fit into these categories, showing how Postgres integrates with or replaces them.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/Databases_DatabaseCapabilitiesMap_PostgreSQLExtensionsAndIntegrations.png">📊 Vergrößern</a></p>
+<p><img alt="PostgreSQL Extensions and Integrations" src="../images/Databases_DatabaseCapabilitiesMap_PostgreSQLExtensionsAndIntegrations.png" /></p>
+<h3 id="standard-linux-directories">Standard Linux Directories</h3>
+<details class="info" open="open">
+<summary>Linux File Systems</summary>
+<p>The Linux file system hierarchy centered on the root directory '/', branching out to show standard subdirectories like /bin, /etc, /home, /var, and /usr, along with brief descriptions of their specific purposes.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/OperatingSystems_DirectoryHierarchy_StandardLinuxDirectories.png">📊 Vergrößern</a></p>
+<p><img alt="Standard Linux Directories" src="../images/OperatingSystems_DirectoryHierarchy_StandardLinuxDirectories.png" /></p>
+<h3 id="the-7-layers-of-the-osi-model">The 7 Layers of the OSI Model</h3>
+<details class="info" open="open">
+<summary>OSI Model</summary>
+<p>Titled 'What is OSI model' illustrating the Open Systems Interconnection model. It shows the seven layers (Physical, Data Link, Network, Transport, Session, Presentation, Application) arranged vertically on both a sending device (Device A) and a receiving device (Device B). The diagram depicts the flow of data, showing encapsulation on the left where headers (MAC, IP, TCP, HTTP) are added as data moves down the layers, transmission as bits, and de-encapsulation on the right where headers are removed as data moves up the layers.</p>
+</details>
+<p><a class="md-button md-button--primary" href="../images/Networking_DataEncapsulation_TheSevenLayersOfTheOSIModel.png">📊 Vergrößern</a></p>
+<p><img alt="The 7 Layers of the OSI Model" src="../images/Networking_DataEncapsulation_TheSevenLayersOfTheOSIModel.png" /></p>
+<p><em>19 Themen verfügbar</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Zurück zum Seitenanfang
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/nifl2000/learning-guide" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
